@@ -1,4 +1,4 @@
-import { aviso, c, correo, dato, esc, identificacion, lista, r, seccion, tabla, tarjetas, whatsapp } from "../lib.mjs";
+import { aviso, c, correo, dato, domicilio, esc, identificacion, lista, seccion, tabla, tarjetas, whatsapp } from "../lib.mjs";
 
 const { app, plazos, retencion, edadMinima, vigencia } = c;
 
@@ -19,8 +19,9 @@ export default {
       ${tabla(["Canal", "Dato"], [
         ["Correo de privacidad", correo()],
         ["WhatsApp", whatsapp()],
-        ["Dirección", `${r("direccion")}, ${r("ciudad")}`],
+        ["Domicilio", domicilio()],
       ])}
+      ${app.nombreEnApp !== app.nombre ? `<p>Dentro de la app, el servicio aparece con el nombre ${esc(app.nombreEnApp)}.</p>` : ""}
       <p>Esta política aplica a la app ${esc(app.nombreCompleto)} para Android (${esc(app.paqueteAndroid)}) y iOS (${esc(app.bundleIos)}), a sus paneles web y a los canales de atención por WhatsApp conectados a la plataforma.</p>
     `),
     seccion("roles", "Nuestro papel y el de las empresas", `
@@ -74,7 +75,7 @@ export default {
       <h3>Ubicación del domiciliario en segundo plano</h3>
       ${lista([
         "Antes de pedir el permiso, la app explica este uso y solicita tu aceptación.",
-        `Se recoge aunque la app esté cerrada o la pantalla apagada, solo mientras estés en turno. En Android verás la notificación permanente «${esc(app.nombreCompleto.split(" - ")[0])} activo».`,
+        `Se recoge aunque la app esté cerrada o la pantalla apagada, solo mientras estés en turno. En Android verás la notificación permanente «${esc(app.nombreEnApp)} activo».`,
         "Con la app abierta se actualiza al moverte unos 10 metros. En segundo plano, alrededor de cada 30 segundos.",
         "Se detiene al salir de turno o cerrar sesión. Puedes retirar el permiso en los ajustes del teléfono, pero podrías dejar de recibir pedidos.",
         `El historial se borra automáticamente a los ${retencion.historialUbicacionDias} días.`,

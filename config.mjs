@@ -13,8 +13,11 @@
 export const config = {
   // --- Aplicación ------------------------------------------------------------
   app: {
-    nombre: "Domik",
-    nombreCompleto: "Domik - Pide Fácil",
+    // Nombre de la ficha en las tiendas. Es provisional: al cambiarlo, regenera.
+    nombre: "Domicilios Pitalito",
+    nombreCompleto: "Domicilios Pitalito",
+    // Nombre que muestra la app por dentro (mobile/src/constants/appName.json).
+    nombreEnApp: "Domik",
     lema: "Pide Fácil",
     // Deben coincidir con la ficha publicada en cada tienda.
     desarrolladorPlay: "MBR Soft",
@@ -27,11 +30,13 @@ export const config = {
   // --- Responsable del tratamiento (datos legales) ---------------------------
   // Son obligatorios en la política: identifican a quien responde legalmente.
   responsable: {
-    nombreLegal: "", // Razón social o nombre completo de la persona natural.
-    tipoDocumento: "", // Por ejemplo: NIT o C.C.
-    numeroDocumento: "",
-    direccion: "",
-    ciudad: "",
+    nombreLegal: "MBRSOFT S.A.S.", // Razón social o nombre completo de la persona natural.
+    // Con false no se publican el tipo ni el número de documento.
+    mostrarDocumento: false,
+    tipoDocumento: "NIT", // Por ejemplo: NIT o C.C.
+    numeroDocumento: "", // Obligatorio solo si mostrarDocumento es true.
+    direccion: "", // Opcional: calle y número. Se publica antes de la ciudad.
+    ciudad: "Pitalito, Huila",
     pais: "Colombia",
   },
 
@@ -53,7 +58,7 @@ export const config = {
 
   // --- Vigencia --------------------------------------------------------------
   vigencia: {
-    version: "2.0",
+    version: "2.1",
     fecha: "18 de noviembre de 2026",
     fechaIso: "2026-11-18",
     avisoCambiosDias: 15, // Antelación con la que se avisan cambios importantes.
@@ -89,7 +94,7 @@ export const config = {
 
   // --- Proveedores que no se pueden deducir del código -----------------------
   proveedores: {
-    infraestructura: "", // Empresa y país donde están los servidores.
+    infraestructura: "Hostinger, con servidores en Estados Unidos", // Empresa y país donde están los servidores.
   },
 
   // --- Marca (mismos valores que la app) -------------------------------------

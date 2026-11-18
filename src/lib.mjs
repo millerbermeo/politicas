@@ -27,8 +27,16 @@ export function dato(grupo, clave) {
 export const c = config;
 export const r = (clave) => dato("responsable", clave);
 
-export const identificacion = () =>
-  `${r("nombreLegal")}, identificado con ${r("tipoDocumento")} ${r("numeroDocumento")}, con domicilio en ${r("direccion")}, ${r("ciudad")}, ${esc(c.responsable.pais)}`;
+/** Dirección (si existe) y ciudad; la dirección es opcional en config.mjs. */
+export const domicilio = () =>
+  [c.responsable.direccion && esc(c.responsable.direccion), r("ciudad")].filter(Boolean).join(", ");
+
+export const identificacion = () => {
+  const documento = c.responsable.mostrarDocumento
+    ? `, identificada con ${r("tipoDocumento")} ${r("numeroDocumento")}`
+    : "";
+  return `${r("nombreLegal")}${documento}, con domicilio en ${domicilio()}, ${esc(c.responsable.pais)}`;
+};
 
 const digitos = (n) => String(n).replace(/\D/g, "");
 

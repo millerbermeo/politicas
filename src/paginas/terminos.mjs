@@ -2,6 +2,7 @@ import { aviso, c, correo, esc, identificacion, lista, seccion, tarjetas, whatsa
 
 const { app, contacto, edadMinima, vigencia, responsable } = c;
 const n = esc(app.nombre);
+const operador = esc(responsable.nombreLegal);
 
 export default {
   archivo: "terminos.html",
@@ -59,7 +60,7 @@ export default {
       ])}
     `),
     seccion("regulados", "Productos con restricciones", `
-      ${aviso("Bebidas alcohólicas", `Solo para mayores de ${edadMinima} años. El local y quien entrega deben verificar la edad con un documento y negarse si no se acredita. El exceso de alcohol es perjudicial para la salud.`, "importante")}
+      ${aviso("Bebidas alcohólicas", `Solo para mayores de ${edadMinima} años. Cada local responde por las bebidas que vende. El local y quien entrega deben verificar la edad con un documento y negarse si no se acredita. El exceso de alcohol es perjudicial para la salud.`, "importante")}
       <p><strong>Medicamentos:</strong> solo pueden ofrecerlos establecimientos autorizados, cumpliendo las reglas sobre fórmula médica. ${n} no da consejo médico.</p>
       <p><strong>Está prohibido ofrecer o pedir:</strong> tabaco, cigarrillos electrónicos y vapeadores, drogas ilícitas, sustancias controladas sin autorización, armas, explosivos, productos robados, falsificados o de contrabando, y cualquier bien o servicio ilegal.</p>
     `),
@@ -97,7 +98,7 @@ export default {
       <p>Algunas empresas atienden por WhatsApp con un asistente de IA que reúne datos del pedido. Puede equivocarse: revisa el resumen antes de confirmar. No promete precios ni tiempos, y el pedido solo se crea cuando lo confirmas.</p>
     `),
     seccion("propiedad", "Propiedad intelectual", `
-      <p>La app, su software, diseño y marca pertenecen a ${n} o a sus licenciantes. Te damos una licencia personal, limitada, revocable y no transferible para usar la app. Las marcas y fotos de los locales pertenecen a sus titulares.</p>
+      <p>La app, su software, diseño y marca pertenecen a ${operador} o a sus licenciantes. Te damos una licencia personal, limitada, revocable y no transferible para usar la app. Las marcas y fotos de los locales pertenecen a sus titulares.</p>
     `),
     seccion("terceros", "Servicios de terceros", `
       <p>El servicio usa o enlaza servicios como WhatsApp, Google, mapas y tiendas de aplicaciones, que tienen sus propias condiciones. No controlamos esos servicios.</p>
@@ -114,7 +115,7 @@ export default {
       <p>Podemos limitar o cerrar cuentas por incumplimiento, fraude, riesgo para otras personas, orden de autoridad o falta de pago de una empresa. Cuando sea posible, avisaremos el motivo y podrás pedir revisión en ${correo(contacto.correoLegal)}.</p>
     `),
     seccion("tiendas", "Descarga desde Apple o Google", `
-      <p>Estos términos son entre tú y ${n}, no con Apple ni Google. ${n}, y no ellas, responde por la app y su contenido, su mantenimiento y soporte, y las reclamaciones sobre ella, incluidas las de producto, cumplimiento legal, consumo y propiedad intelectual.</p>
+      <p>Estos términos son entre tú y ${operador}, no con Apple ni Google. ${operador}, y no ellas, responde por la app y su contenido, su mantenimiento y soporte, y las reclamaciones sobre ella, incluidas las de producto, cumplimiento legal, consumo y propiedad intelectual.</p>
       <p>En iPhone puedes usar la app en dispositivos Apple que poseas o controles, según las reglas de uso del App Store. Si la app no cumple una garantía aplicable, puedes avisar a Apple, que podrá reembolsar el precio de compra, si lo hubo; Apple no tiene otra obligación de garantía en la medida que la ley lo permita. Declaras que no estás en un país sujeto a embargo de Estados Unidos ni en sus listas de partes restringidas. Apple y sus filiales son terceros beneficiarios de estos términos y pueden exigir su cumplimiento.</p>
     `),
     seccion("cambios", "Cambios", `

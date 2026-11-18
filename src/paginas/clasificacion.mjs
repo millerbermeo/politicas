@@ -12,7 +12,7 @@ export default {
   resumen: `<div class="summary">${tarjetas([
     ["Público objetivo", `Personas de ${edadMinima} años o más.`],
     ["Contenido de usuarios", "Chat, fotos, audios y reseñas."],
-    ["Productos restringidos", `Puede haber licores, solo para mayores de ${edadMinima}.`],
+    ["Productos restringidos", `Algunos locales pueden vender alcohol, solo a mayores de ${edadMinima}.`],
   ])}</div>`,
   secciones: [
     seccion("publico", "Público objetivo", `
@@ -21,7 +21,7 @@ export default {
     `),
     seccion("contenido", "Qué puede contener", `
       ${lista([
-        "Catálogos de restaurantes, tiendas, farmacias, licorerías y otros comercios.",
+        "Catálogos de restaurantes, tiendas, supermercados, farmacias, licorerías y otros comercios.",
         "Chat con texto, fotos, audios, ubicación, stickers y reacciones.",
         "Reseñas públicas, y fotos y descripciones publicadas por locales.",
         "Ubicación compartida para coordinar entregas.",
@@ -35,7 +35,7 @@ export default {
         ["Contenido sexual o desnudos", NO],
         ["Lenguaje ofensivo creado por la app", NO],
         ["Drogas ilegales", NO],
-        ["Referencia a alcohol", "Sí: venta por locales de licores, solo para adultos"],
+        ["Referencia o venta de alcohol", "Sí: venta por locales, solo para adultos"],
         ["Referencia o venta de tabaco", "No: está prohibido en la plataforma"],
         ["Apuestas o simulación de apuestas", NO],
         ["Los usuarios pueden interactuar o comunicarse", "Sí"],
@@ -55,7 +55,7 @@ export default {
         ["Mensajería y chat", "Sí"],
         ["Redes sociales", NO],
         ["Publicidad", NO],
-        ["Alcohol, tabaco o drogas", "Frecuente, si hay licorerías activas (corresponde a 18+)"],
+        ["Alcohol, tabaco o drogas", "Frecuente: algunos locales venden alcohol (corresponde a 18+)"],
         ["Información médica o de tratamiento", "No: las farmacias solo muestran catálogo"],
         ["Temas de salud o bienestar", NO],
         ["Lenguaje soez, terror o temas maduros", NO],
@@ -63,7 +63,7 @@ export default {
         ["Violencia o armas", NO],
         ["Apuestas, concursos o cajas de botín", NO],
       ])}
-      <p>Con estas respuestas, la clasificación esperada en App Store es <strong>18+</strong>, coherente con la edad mínima de la app.</p>
+      <p>Con estas respuestas, la clasificación esperada en App Store es <strong>18+</strong>, coherente con la edad mínima de la app. La calcula Apple.</p>
     `),
     seccion("familias", "Padres y cuidadores", `
       <p>Si crees que un menor tiene una cuenta o recibió productos restringidos, <a href="contacto.html#reportar">repórtalo</a>. Cerraremos la cuenta y revisaremos el caso.</p>
